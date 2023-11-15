@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+int solution(int arr[], int arr_len) {
+    int answer = 0;
+    int check[arr_len];
+
+    while (1) {
+        for (int i = 0; i < arr_len; i++) {
+            check[i] = arr[i];
+            if (arr[i] >= 50 && arr[i] % 2 == 0) {
+                arr[i] = arr[i] / 2;
+            } else if (arr[i] < 50 && arr[i] % 2 != 0) {
+                arr[i] = arr[i] * 2 + 1;
+            }
+        }
+
+        bool equal = true;
+        for (int j = 0; j < arr_len; j++) {
+            if (check[j] != arr[j]) {
+                equal = false;
+                break;
+            }
+        }
+
+        if (equal) {
+            break;
+        } else {
+            answer++;
+        }
+    }
+
+    return answer;
+}
