@@ -5,7 +5,7 @@
 int* solution(long long n) {
     // 리턴할 값은 메모리를 동적 할당해주세요.
     int count = 0;
-    int temp = n;
+    long long temp = n;
     while(temp != 0){
         temp /= 10;
         count++;
