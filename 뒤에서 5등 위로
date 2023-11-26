@@ -5,7 +5,7 @@
 // num_list_len은 배열 num_list의 길이입니다.
 int* solution(const int num_list[], int num_list_len) {
     // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
-    int* answer = (int*)malloc(sizeof(int) * 5);
+    int* answer = (int*)malloc(sizeof(int) * (num_list_len - 5));
 
     int* sorted_list = (int*)malloc(sizeof(int) * num_list_len);
     for (int i = 0; i < num_list_len; i++) {
