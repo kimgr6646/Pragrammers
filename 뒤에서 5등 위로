@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+// num_list_len은 배열 num_list의 길이입니다.
+int* solution(const int num_list[], int num_list_len) {
+    // return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
+    int* answer = (int*)malloc(sizeof(int) * 5);
+
+    int* sorted_list = (int*)malloc(sizeof(int) * num_list_len);
+    for (int i = 0; i < num_list_len; i++) {
+        sorted_list[i] = num_list[i];
+    }
+
+    for (int i = 0; i < num_list_len; i++) {
+        for (int j = i + 1; j < num_list_len; j++) {
+            if (sorted_list[j] < sorted_list[i]){
+                int temp = sorted_list[i];
+                sorted_list[i] = sorted_list[j];
+                sorted_list[j] = temp;
+            }
+        }
+    }
+
+    for (int i = 5; i < num_list_len; i++) {
+        answer[i - 5] = sorted_list[i];
+    }
+
+    free(sorted_list);
+
+    return answer;
+}
